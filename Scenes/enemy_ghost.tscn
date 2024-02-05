@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwvd8tdw5r073"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_flying.gd" id="1_jrbh5"]
+[ext_resource type="Texture2D" uid="uid://bcc8gobihtsvw" path="res://Sprites/Abstract Platformer/PNG/Enemies/ghost.png" id="2_s3g35"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oniqs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s3g35")
+}],
+"loop": false,
+"name": &"default",
+"speed": 25.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2lsq"]
+size = Vector2(38.0429, 42.1405)
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 3
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_jrbh5")
+isGhost = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["enemy"]]
+modulate = Color(1, 1, 1, 0.780392)
+position = Vector2(0.378712, -2.91467)
+sprite_frames = SubResource("SpriteFrames_oniqs")
+frame_progress = 0.845627
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+position = Vector2(-0.378712, 2.91467)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+position = Vector2(0.0994473, -4.93561)
+shape = SubResource("RectangleShape2D_l2lsq")

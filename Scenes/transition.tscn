@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpoauytod3hyq"]
+
+[ext_resource type="Shader" path="res://Shaders/CircleTransition.gdshader" id="1_urmx6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x35ua"]
+shader = ExtResource("1_urmx6")
+shader_parameter/circle_size = 0.0
+
+[sub_resource type="Animation" id="Animation_84yup"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1sdnc"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_fq46c"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4od0j"]
+_data = {
+"RESET": SubResource("Animation_84yup"),
+"close": SubResource("Animation_1sdnc"),
+"open": SubResource("Animation_fq46c")
+}
+
+[node name="Transition" type="ColorRect"]
+z_index = 100
+material = SubResource("ShaderMaterial_x35ua")
+offset_left = -616.708
+offset_top = -337.508
+offset_right = -576.708
+offset_bottom = -297.508
+scale = Vector2(31.6408, 18.1652)
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4od0j")
+}
+speed_scale = 1.5

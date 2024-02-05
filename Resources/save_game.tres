@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SaveGame" load_steps=2 format=3 uid="uid://byncnljkjobly"]
+
+[ext_resource type="Script" path="res://Scripts/SaveGame.gd" id="1_1ch4n"]
+
+[resource]
+script = ExtResource("1_1ch4n")
+swaps = 0
+enemies1 = 0
+enemies2 = 0
+score = 0
+stars = 0
+muteMusic = false
+muteSfx = false

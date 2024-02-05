@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhkg0aq8gibjr"]
+
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_othbc"]
+
+[node name="UI" type="Node2D"]
+script = ExtResource("1_othbc")
+
+[node name="PlayButton" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -99.201
+offset_top = -115.686
+offset_right = 140.799
+offset_bottom = 16.3139
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.839999, 0.839999)
+theme_override_font_sizes/font_size = 90
+text = "Play!"
+
+[node name="HowToPlayButton" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -98.5756
+offset_top = 20.2201
+offset_right = 276.424
+offset_bottom = 152.22
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.537556, 0.537556)
+theme_override_font_sizes/font_size = 90
+text = "Controls"
+
+[connection signal="button_down" from="PlayButton" to="." method="_on_play_button_button_down"]
+[connection signal="button_down" from="HowToPlayButton" to="." method="_on_how_to_play_button_button_down"]

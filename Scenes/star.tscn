@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxidfntq4agys"]
+
+[ext_resource type="Texture2D" uid="uid://q0s1qgnbkc4y" path="res://Sprites/Abstract Platformer/PNG/Items/yellowCrystal.png" id="1_f366s"]
+[ext_resource type="Script" path="res://Scripts/Star.gd" id="2_yh4dc"]
+[ext_resource type="AudioStream" uid="uid://cjbmbgeiicnwa" path="res://Sounds/coin1.ogg" id="3_0ktfi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t0koo"]
+
+[node name="Star" type="Sprite2D" groups=["star"]]
+position = Vector2(-323.464, 35.6762)
+texture = ExtResource("1_f366s")
+script = ExtResource("2_yh4dc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_t0koo")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0ktfi")
+volume_db = -6.202
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

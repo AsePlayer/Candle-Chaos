@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dop0w0di3utm3"]
+
+[ext_resource type="AudioStream" uid="uid://chfidadjekp6d" path="res://Sounds/Music/Retro Comedy.ogg" id="1_p8nif"]
+[ext_resource type="Script" path="res://Scripts/PitchDownOnLoss.gd" id="2_1rkj5"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_p8nif")
+autoplay = true
+script = ExtResource("2_1rkj5")

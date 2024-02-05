@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvlaegm2oivnk"]
+
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_oiq2e"]
+[ext_resource type="Resource" uid="uid://byncnljkjobly" path="res://Resources/save_game.tres" id="2_81dea"]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_oiq2e")
+save_game = ExtResource("2_81dea")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
